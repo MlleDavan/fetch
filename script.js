@@ -2,13 +2,20 @@
 const postSection = document.getElementById("postSection");
 
 // Requête GET
-fetch("https://jsonplaceholder.typicode.com/posts")
+fetch("https://jsonplaceholder.typicode.com/todos")
 .then(response => response.json()) // Transformation de la réponse reçu au format JSON
 .then(posts => {    // Extraction de l'ensemble des post du JSON
-    
+posts.forEach(post => {
+    let postSection = document.createElement("section");
+if(post.completed==true){
+postSection.classList.add("post");
+else{(post.completed==false
+
+}
+  
+});
 // Création des élments HTML du post à ajouter au DOM
-let postDiv = document.createElement("div");
-postDiv.classList.add("post");
+
 
 let titleParagraph = document.createElement("p");
 titleParagraph.classList.add("title");
