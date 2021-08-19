@@ -1,34 +1,34 @@
 // Éléments du DOM
-const postSection = document.getElementById("postSection");
+const postDiv = document.getElementById("postSection");
 
 // Requête GET
 fetch("https://jsonplaceholder.typicode.com/todos")
 .then(response => response.json()) // Transformation de la réponse reçu au format JSON
 .then(posts => {    // Extraction de l'ensemble des post du JSON
 posts.forEach(post => {
-    let postSection = document.createElement("section");
+let section = document.createElement ("section");
 if(post.completed==true){
-postSection.classList.add("post");
-else{(post.completed==false
+section.classList.add("green")}
 
-}
+else {
+   section.classList.add("red");
+} 
   
+
+     // Ajout du post au DOM
+     let text = document.createTextNode(post.title)
+     let titre = document.createElement("h2");
+     
+   titre.appendChild(text);
+   section.appendChild(titre);
+   postDiv.appendChild(section);
+
+ });
+
+
 });
 // Création des élments HTML du post à ajouter au DOM
 
 
-let titleParagraph = document.createElement("p");
-titleParagraph.classList.add("title");
 
-let contentParagraph = document.createElement("p");
-contentParagraph.classList.add("content");
-
-     // Ajout du post au DOM
-     titleParagraph.appendChild(title);
-     contentParagraph.appendChild(content);
-     postDiv.appendChild(titleParagraph);
-     postDiv.appendChild(contentParagraph);
-     postSection.appendChild(postDiv);
- });
-});
  
